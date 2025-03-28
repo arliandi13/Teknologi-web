@@ -27,3 +27,5 @@ $routes->get('/forum', 'ForumPost::forum');
 // Route ke halaman update user
 $routes->get('/updateuser', 'UserController::updateuser');
 
+// Route ke halaman update user
+$routes->get('/admin', 'AdminController::admincontroller');
