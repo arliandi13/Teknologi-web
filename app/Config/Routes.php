@@ -25,7 +25,7 @@ $routes->get('/profile', 'ProfileBase::profile');
 $routes->get('/forum', 'ForumPost::forum');
 
 // Route ke halaman update user
-$routes->get('/updateuser', 'UserController::updateuser');
+$routes->get('/dashboard', 'Dashboard::views');
 
 // Route ke halaman update user
 $routes->get('/admin', 'AdminController::admincontroller');
