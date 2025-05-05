@@ -6,14 +6,23 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
+// Route ke halaman login and register
+$routes->get('/login', 'Auth::login');
+$routes->post('/login', 'Auth::attemptLogin');
+$routes->get('/register', 'Auth::register');
+$routes->post('/register', 'Auth::attemptRegister');
+$routes->get('/logout', 'Auth::logout');
 
-// Route untuk halaman login dan register
-$routes->get('/login', 'Auth::showLogin');
-$routes->get('/register', 'Auth::showRegister');
+// Dashboard Admin and admin
+$routes->get('/admin', 'Dashboard\Dashboard::dbadmin');
+$routes->get('/user', 'Dashboard\DashboardUser::dbuser');
 
-// Route untuk proses login dan register
-$routes->post('/login', 'Auth::login');
-$routes->post('/register', 'Auth::register');
+// Route ke halaman forum
+$routes->get('/forum', 'Forum::index');
+$routes->get('/forum/create', 'Forum::create');
+$routes->post('/forum/store', 'Forum::store');
+$routes->get('/forum/detail/(:num)', 'Forum::detail/$1');
+$routes->post('/forum/reply/(:num)', 'Forum::reply/$1');
 
 // Route ke halaman utama
 $routes->get('/index', 'Home::index');
@@ -23,6 +32,9 @@ $routes->get('/profile', 'ProfileBase::profile');
 
 // Route ke halaman forum
 $routes->get('/forum', 'ForumPost::forum');
+
+// Route ke halaman forum
+$routes->get('/dashboarduser', 'DashboardUser::Dbuser');
 
 // Route ke halaman update user
 $routes->get('/dashboard', 'Dashboard::views');

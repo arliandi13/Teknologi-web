@@ -23,6 +23,11 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" name="password" required>
             </div>
+            <label for="role">Daftar sebagai:</label>
+                <select name="role" required>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
             <button type="submit" class="btn btn-primary">Register</button>
             <p class="mt-2">Sudah punya akun? <a href="/login">Login</a></p>
         </form>

@@ -1,0 +1,25 @@
+body {
+    background-color: #f5f8fa;
+}
+
+#wrapper {
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    transition: all 0.3s;
+    min-height: 100vh;
+}
+
+.sidebar.collapsed {
+    margin-left: -250px;
+}
+
+.nav-link i {
+    margin-right: 8px;
+}
+
+.table a {
+    text-decoration: none;
+}

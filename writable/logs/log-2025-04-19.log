@@ -1,0 +1,52 @@
+CRITICAL - 2025-04-19 02:36:20 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "dashoard_user.php"
+[Method: GET, Route: dashboarduser]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashoard_user.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('dashoard_user', [], true)
+ 3 APPPATH\Controllers\DashboardUser.php(11): view('dashoard_user')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DashboardUser->view()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardUser))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Arliandi\\TUGAS\\Teknologi-web\\public\\index.php')
+CRITICAL - 2025-04-19 02:37:45 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "dashoard_user.php"
+[Method: GET, Route: dashboarduser]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashoard_user.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('dashoard_user', [], true)
+ 3 APPPATH\Controllers\DashboardUser.php(11): view('dashoard_user')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DashboardUser->Dashboard()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardUser))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Arliandi\\TUGAS\\Teknologi-web\\public\\index.php')
+CRITICAL - 2025-04-19 02:38:48 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "dashoarduser.php"
+[Method: GET, Route: dashboarduser]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashoarduser.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('dashoarduser', [], true)
+ 3 APPPATH\Controllers\DashboardUser.php(11): view('dashoarduser')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DashboardUser->Dashboard()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardUser))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Arliandi\\TUGAS\\Teknologi-web\\public\\index.php')
+CRITICAL - 2025-04-19 02:40:49 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "dashboarduser.php"
+[Method: GET, Route: dashboarduser]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashboarduser.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('dashboarduser', [], true)
+ 3 APPPATH\Controllers\DashboardUser.php(11): view('dashboarduser')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DashboardUser->Dbuser()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardUser))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\Arliandi\\TUGAS\\Teknologi-web\\public\\index.php')

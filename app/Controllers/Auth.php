@@ -6,68 +6,73 @@ use CodeIgniter\Controller;
 
 class Auth extends Controller
 {
-    public function showLogin()
+    public function login()
     {
         return view('auth/login');
     }
 
-    public function showRegister()
+    public function register()
     {
         return view('auth/register');
     }
 
-    public function register()
-    {
-        $validation = \Config\Services::validation();
-        
-        $validation->setRules([
-            'email' => 'required|valid_email|is_unique[users.email]',
-            'password' => 'required|min_length[6]',
-            'name' => 'required'
-        ]);
-
-        if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
-        }
-
-        $userModel = new UserModel();
-        $userModel->insert([
-            'name' => $this->request->getPost('name'),
-            'email' => $this->request->getPost('email'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_BCRYPT)
-        ]);
-
-
-        return redirect()->to('/login')->with('success', 'Registrasi berhasil!');
-    }
-
-    public function login()
+    public function attemptLogin()
     {
         $session = session();
         $userModel = new UserModel();
+
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
         $user = $userModel->where('email', $email)->first();
-        
+
         if ($user && password_verify($password, $user['password'])) {
-            $sessionData = [
-                'user_id' => $user['id'],
-                'user_name' => $user['name'],
-                'user_email' => $user['email'],
-                'logged_in' => true
-            ];
-            $session->set($sessionData);
-            return redirect()->to('/profile');
+            $session->set([
+                'user_id'     => $user['id'],
+                'user_name'   => $user['name'],
+                'user_role'   => $user['role'],
+                'is_logged_in'=> true
+            ]);
+
+            // Redirect sesuai role
+            if ($user['role'] == 'admin') {
+                return redirect()->to('/admin');
+            } else {
+                return redirect()->to('/user');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Email atau password salah.');
         }
-        
-        return redirect()->back()->with('error', 'Email atau password salah!');
     }
-    
+
+
+    public function attemptRegister()
+    {
+        $userModel = new UserModel();
+
+        $role = $this->request->getPost('role');
+
+        // Validasi supaya admin tidak bisa daftar sembarangan (opsional, untuk keamanan)
+        if (!in_array($role, ['user', 'admin', 'moderator'])) {
+            return redirect()->back()->with('error', 'Role tidak valid.');
+        }
+
+        $data = [
+            'name'     => $this->request->getPost('name'),
+            'email'    => $this->request->getPost('email'),
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'role'     => $role
+        ];
+
+        $userModel->insert($data);
+        return redirect()->to('/login')->with('success', 'Registrasi berhasil.');
+    }
+
     public function logout()
     {
-        $session = session();
-        $session->destroy();
-        return redirect()->to('/login');
+        session()->destroy(); // Hapus semua session
+        return redirect()->to('/login'); // Arahkan ke halaman login
     }
+
+
 }

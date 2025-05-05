@@ -1,212 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Dash UI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
   <script src="https://unpkg.com/feather-icons"></script>
   <link rel="stylesheet" href="<?= base_url('asset/css/dashboard.css') ?>">
-
 </head>
 <body>
-  <!-- Top Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">JPOT.id</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="d-flex ms-auto" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
 
-  <div class="container-fluid">
-    <div class="row">
-      <nav class="col-md-2 d-none d-md-block bg-dark text-white sidebar">
-        <div class="position-sticky pt-3">
-          <ul class="nav flex-column mt-4">
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">Layouts<i data-feather="search" class="ms-5"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">Pages</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">Charts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="#">Tables</a>
-            </li>
-          </ul>
+<!-- Navbar for small screens -->
+<nav class="navbar d-md-none bg-dark px-3">
+  <button class="btn btn-sm text-white" id="menuToggle">
+    <i data-feather="menu"></i>
+  </button>
+  <span class="navbar-brand text-white ms-2">Dash UI</span>
+</nav>
+
+<div class="d-flex">
+  <!-- Sidebar -->
+  <div class="sidebar p-3" id="sidebar">
+    <h5 class="text-white mb-4 d-none d-md-block">Dashboard</h5>
+    <a href="#" class="active"><i data-feather="user"></i> Admin</a>
+    <hr class="text-secondary">
+    <small class="text-secondary px-3">LAYOUTS & PAGES</small>
+    <a href="#"><i data-feather="file-text"></i> Pages</a>
+    <a href="#"><i data-feather="lock"></i> Authentication</a>
+    <a href="#"><i data-feather="layout"></i> Layouts</a>
+    <hr class="text-secondary">
+    <small class="text-secondary px-3">UI COMPONENTS</small>
+    <a href="#"><i data-feather="grid"></i> Components</a>
+    <a href="#"><i data-feather="menu"></i> Menu Level</a>
+    <hr class="text-secondary">
+    <small class="text-secondary px-3">DOCUMENTATION</small>
+    <a href="#"><i data-feather="book"></i> Docs</a>
+    <a href="#"><i data-feather="activity"></i> Changelog</a>
+    <a href="#"><i data-feather="download"></i> Download</a>
+  </div>
+
+  <!-- Content -->
+  <div class="flex-grow-1">
+    <div class="top-header d-flex justify-content-between align-items-center px-4">
+      <h4 class="mb-0">JPOT.id</h4>
+      <a href="<?= base_url('/logout') ?>" class="btn btn-outline-danger ms-2">
+        <i data-feather="log-out"></i> Logout
+      </a>
+
+    </div>
+
+    <div class="container my-4">
+      <div class="row g-3">
+        <div class="col-md-3 col-sm-6">
+          <div class="card-box text-center">
+            <i data-feather="briefcase"></i>
+            <h3>18</h3>
+            <p class="text-muted">Projects<br><small>2 Completed</small></p>
+          </div>
         </div>
-      </nav>
-
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Dashboard</h1>
+        <div class="col-md-3 col-sm-6">
+          <div class="card-box text-center">
+            <i data-feather="check-square"></i>
+            <h3>132</h3>
+            <p class="text-muted">Active Task<br><small>28 Completed</small></p>
+          </div>
         </div>
-
-<div class="row text-center">
-  <div class="col-6 col-md-3 mb-4">
-    <div class="card bg-primary text-white card-interactive">
-      <div class="card-body">
-        <a href="#" class="text-white d-flex flex-column align-items-center text-decoration-none">
-          <i data-feather="user" class="mb-2"></i>
-          <div>List Account</div>
-        </a>
+        <div class="col-md-3 col-sm-6">
+          <div class="card-box text-center">
+            <i data-feather="users"></i>
+            <h3>12</h3>
+            <p class="text-muted">Teams<br><small>1 Completed</small></p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card-box text-center">
+            <i data-feather="bar-chart-2"></i>
+            <h3>76%</h3>
+            <p class="text-muted">Productivity<br><small>5% Completed</small></p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="col-6 col-md-3 mb-4">
-    <div class="card bg-success text-white card-interactive">
-      <div class="card-body">
-        <a href="#" class="text-white d-flex flex-column align-items-center text-decoration-none">
-          <i data-feather="activity" class="mb-2"></i>
-          <div>List Post</div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-6 col-md-3 mb-4">
-    <div class="card bg-warning text-white card-interactive">
-      <div class="card-body">
-        <a href="#" class="text-white d-flex flex-column align-items-center text-decoration-none">
-          <i data-feather="bar-chart-2" class="mb-2"></i>
-          <div>Reports</div>
-          <div>View Details</div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-6 col-md-3 mb-4">
-    <div class="card bg-danger text-white card-interactive">
-      <div class="card-body">
-        <a href="#" class="text-white d-flex flex-column align-items-center text-decoration-none">
-          <i data-feather="alert-triangle" class="mb-2"></i>
-          <div>Alerts</div>
-          <div>View Detail</div>
-        </a>
+      <div class="mt-5">
+        <h5>Active Projects</h5>
+        <table class="table table-bordered mt-3 bg-white">
+          <thead>
+            <tr>
+              <th>Project Name</th>
+              <th>Hours</th>
+              <th>Priority</th>
+              <th>Members</th>
+              <th>Progress</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dropbox Design System</td>
+              <td>34</td>
+              <td><span class="priority-medium">Medium</span></td>
+              <td>
+                <img src="https://i.pravatar.cc/30?img=1" class="rounded-circle me-1" width="30">
+                <img src="https://i.pravatar.cc/30?img=2" class="rounded-circle me-1" width="30">
+              </td>
+              <td>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar" style="width: 15%"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Slack Team UI Design</td>
+              <td>47</td>
+              <td><span class="priority-medium">Medium</span></td>
+              <td>
+                <img src="https://i.pravatar.cc/30?img=3" class="rounded-circle me-1" width="30">
+                <img src="https://i.pravatar.cc/30?img=4" class="rounded-circle me-1" width="30">
+              </td>
+              <td>
+                <div class="progress" style="height: 8px;">
+                  <div class="progress-bar" style="width: 35%"></div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 </div>
 
+<script>
+  feather.replace();
 
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-4">
-              <div class="card-header">Area Chart Example</div>
-              <div class="card-body">
-                <canvas id="areaChart"></canvas>
-              </div>
-            </div>
-          </div>
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
 
-          <div class="col-md-6">
-            <div class="card mb-4">
-              <div class="card-header">Bar Chart Example</div>
-              <div class="card-body">
-                <canvas id="barChart"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-4">
-          <div class="card-header">DataTable Example</div>
-          <div class="card-body">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Airi Satou</td>
-                  <td>Accountant</td>
-                  <td>Tokyo</td>
-                  <td>33</td>
-                  <td>2008/11/28</td>
-                  <td>$162,700</td>
-                </tr>
-                <tr>
-                  <td>Angelica Ramos</td>
-                  <td>Chief Executive Officer (CEO)</td>
-                  <td>London</td>
-                  <td>47</td>
-                  <td>2009/10/09</td>
-                  <td>$1,200,000</td>
-                </tr>
-                <tr>
-                  <td>Ashton Cox</td>
-                  <td>Junior Technical Author</td>
-                  <td>San Francisco</td>
-                  <td>66</td>
-                  <td>2009/01/12</td>
-                  <td>$86,000</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </main>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const areaCtx = document.getElementById('areaChart').getContext('2d');
-    const barCtx = document.getElementById('barChart').getContext('2d');
-
-    new Chart(areaCtx, {
-      type: 'line',
-      data: {
-        labels: ['Mar 1', 'Mar 3', 'Mar 5', 'Mar 7', 'Mar 9', 'Mar 11', 'Mar 13'],
-        datasets: [{
-          label: 'Visitors',
-          data: [5000, 3000, 4000, 6000, 7000, 6000, 8000],
-          backgroundColor: 'rgba(0, 123, 255, 0.2)',
-          borderColor: 'rgba(0, 123, 255, 1)',
-          fill: true
-        }]
-      }
-    });
-
-    new Chart(barCtx, {
-      type: 'bar',
-      data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-        datasets: [{
-          label: 'Revenue',
-          data: [5000, 7000, 8000, 10000, 11000, 15000],
-          backgroundColor: 'rgba(0, 123, 255, 1)'
-        }]
-      }
-    });
-  </script>
-
-    <script>
-      feather.replace();
-    </script>
+  menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('show-sidebar');
+  });
+</script>
 </body>
 </html>
