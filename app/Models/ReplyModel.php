@@ -24,4 +24,6 @@ use CodeIgniter\Model;
                     ->findAll();
         }
 
+        
+
 }

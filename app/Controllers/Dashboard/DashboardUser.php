@@ -1,14 +1,25 @@
 <?php
 
-namespace App\Controllers;
 namespace App\Controllers\Dashboard;
 
-use CodeIgniter\Controller;
+use App\Controllers\BaseController;
+use App\Models\TopicModel;
 
-class DashboardUser extends Controller
+class DashboardUser extends BaseController
 {
     public function dbuser()
     {
-        return view('dashboard_user'); // Pastikan 'forum' adalah nama file di Views (tanpa .php)
+        $topicModel = new TopicModel();
+        $userId = session()->get('user_id');
+        $q = $this->request->getGet('q');
+
+        // Ambil data postingan milik user saat ini + pencarian jika ada
+        $posts = $topicModel->getPostsWithUsers($userId, $q);
+
+        return view('dashboard_user', [
+            'title' => 'Dashboard Forum',
+            'posts' => $posts,
+            'q' => $q,
+        ]);
     }
 }

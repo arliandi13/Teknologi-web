@@ -52,11 +52,10 @@ class Forum extends BaseController
         'created_at' => date('Y-m-d H:i:s')
     ]);
 
-
         return redirect()->to('/forum');
     }
 
-    
+
     public function detail($id)
     {
         $data['topic'] = $this->topicModel->find($id);
@@ -91,6 +90,9 @@ class Forum extends BaseController
 
         return redirect()->to("/forum/detail/" . $topic_id);
     }
+
+
+    
 
 }
 

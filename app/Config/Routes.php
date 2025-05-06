@@ -13,9 +13,10 @@ $routes->get('/register', 'Auth::register');
 $routes->post('/register', 'Auth::attemptRegister');
 $routes->get('/logout', 'Auth::logout');
 
-// Dashboard Admin and admin
+// Dashboard user and admin
 $routes->get('/admin', 'Dashboard\Dashboard::dbadmin');
 $routes->get('/user', 'Dashboard\DashboardUser::dbuser');
+
 
 // Route ke halaman forum
 $routes->get('/forum', 'Forum::index');
@@ -23,6 +24,10 @@ $routes->get('/forum/create', 'Forum::create');
 $routes->post('/forum/store', 'Forum::store');
 $routes->get('/forum/detail/(:num)', 'Forum::detail/$1');
 $routes->post('/forum/reply/(:num)', 'Forum::reply/$1');
+
+// Sudah ada sebelumnya, tapi kita bisa tambahkan opsional sorting
+$routes->get('forum/search', 'Forum::search'); 
+
 
 // Route ke halaman utama
 $routes->get('/index', 'Home::index');

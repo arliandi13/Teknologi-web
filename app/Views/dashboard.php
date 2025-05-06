@@ -1,45 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive Dash UI</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
-  <script src="https://unpkg.com/feather-icons"></script>
-  <link rel="stylesheet" href="<?= base_url('asset/css/dashboard.css') ?>">
-</head>
-<body>
-
-<!-- Navbar for small screens -->
-<nav class="navbar d-md-none bg-dark px-3">
-  <button class="btn btn-sm text-white" id="menuToggle">
-    <i data-feather="menu"></i>
-  </button>
-  <span class="navbar-brand text-white ms-2">Dash UI</span>
-</nav>
-
-<div class="d-flex">
-  <!-- Sidebar -->
-  <div class="sidebar p-3" id="sidebar">
-    <h5 class="text-white mb-4 d-none d-md-block">Dashboard</h5>
-    <a href="#" class="active"><i data-feather="user"></i> Admin</a>
-    <hr class="text-secondary">
-    <small class="text-secondary px-3">LAYOUTS & PAGES</small>
-    <a href="#"><i data-feather="file-text"></i> Pages</a>
-    <a href="#"><i data-feather="lock"></i> Authentication</a>
-    <a href="#"><i data-feather="layout"></i> Layouts</a>
-    <hr class="text-secondary">
-    <small class="text-secondary px-3">UI COMPONENTS</small>
-    <a href="#"><i data-feather="grid"></i> Components</a>
-    <a href="#"><i data-feather="menu"></i> Menu Level</a>
-    <hr class="text-secondary">
-    <small class="text-secondary px-3">DOCUMENTATION</small>
-    <a href="#"><i data-feather="book"></i> Docs</a>
-    <a href="#"><i data-feather="activity"></i> Changelog</a>
-    <a href="#"><i data-feather="download"></i> Download</a>
-  </div>
-
+<?= $this->extend('template/main') ?>
+<?= $this->section('content') ?>
   <!-- Content -->
   <div class="flex-grow-1">
     <div class="top-header d-flex justify-content-between align-items-center px-4">
@@ -129,6 +89,10 @@
     </div>
   </div>
 </div>
+<?= $this->endSection() ?>
+
+
+
 
 <script>
   feather.replace();

@@ -53,7 +53,7 @@ class Auth extends Controller
         $role = $this->request->getPost('role');
 
         // Validasi supaya admin tidak bisa daftar sembarangan (opsional, untuk keamanan)
-        if (!in_array($role, ['user', 'admin', 'moderator'])) {
+        if (!in_array($role, ['user', 'admin'])) {
             return redirect()->back()->with('error', 'Role tidak valid.');
         }
 

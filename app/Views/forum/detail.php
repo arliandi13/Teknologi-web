@@ -1,4 +1,4 @@
-<?= $this->extend('main') ?>
+<?= $this->extend('template/main') ?>
 <?= $this->section('content') ?>
 
 <div class="container mt-4">
