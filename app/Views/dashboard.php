@@ -1,4 +1,4 @@
-<?= $this->extend('template/main') ?>
+<?= $this->extend('template/mainadmin') ?>
 <?= $this->section('content') ?>
   <!-- Content -->
   <div class="flex-grow-1">
@@ -7,7 +7,6 @@
       <a href="<?= base_url('/logout') ?>" class="btn btn-outline-danger ms-2">
         <i data-feather="log-out"></i> Logout
       </a>
-
     </div>
 
     <div class="container my-4">

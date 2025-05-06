@@ -26,7 +26,10 @@ $routes->get('/forum/detail/(:num)', 'Forum::detail/$1');
 $routes->post('/forum/reply/(:num)', 'Forum::reply/$1');
 
 // Sudah ada sebelumnya, tapi kita bisa tambahkan opsional sorting
-$routes->get('forum/search', 'Forum::search'); 
+$routes->get('forum/search', 'Forum::search');
+
+// tabel pengguna
+$routes->get('/userspengguna', 'UserController::index');
 
 
 // Route ke halaman utama
