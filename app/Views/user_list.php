@@ -42,8 +42,11 @@
                             <tr>
                                 <td><?= esc($user['id']) ?></td>
                                 <td>
-                                    <?php if (!empty($user['photo'])): ?>
-                                        <img src="<?= base_url('uploads/' . $user['photo']) ?>" alt="Foto" class="user-photo">
+                                    <?php
+                                        $photoPath = 'uploads/users/' . $user['photo'];
+                                        if (!empty($user['photo']) && file_exists(FCPATH . $photoPath)):
+                                    ?>
+                                        <img src="<?= base_url($photoPath) ?>" alt="Foto" class="user-photo">
                                     <?php else: ?>
                                         <span class="text-muted">Tidak ada foto</span>
                                     <?php endif; ?>
@@ -69,4 +72,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 <?= $this->endSection() ?>

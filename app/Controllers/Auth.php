@@ -31,14 +31,15 @@ class Auth extends Controller
                 'user_id'     => $user['id'],
                 'user_name'   => $user['name'],
                 'user_role'   => $user['role'],
+                'photo'       => $user['photo'] ?? session()->get('photo'),
                 'is_logged_in'=> true
             ]);
 
             // Redirect sesuai role
             if ($user['role'] == 'admin') {
-                return redirect()->to('/admin');
+                return redirect()->to('/dbadmin');
             } else {
-                return redirect()->to('/user');
+                return redirect()->to('/dbuser');
             }
         } else {
             return redirect()->back()->with('error', 'Email atau password salah.');

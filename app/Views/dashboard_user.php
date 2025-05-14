@@ -3,28 +3,6 @@
 <?= $this->section('content') ?>
 
   <h4>Diskusi / Posting</h4>
-  <!-- Form pencarian -->
-  <div class="d-flex justify-content-end mb-2">
-    <?php if (!empty($q)): ?>
-      <div class="alert alert-info alert-dismissible fade show text-end py-2 px-3 mb-2" role="alert">
-        Menampilkan hasil pencarian untuk: <strong><?= esc($q) ?></strong>
-        <a href="<?= base_url('/user') ?>" class="btn-close" aria-label="Close"></a>
-      </div>
-    <?php endif; ?>
-
-
-    <form action="<?= base_url('/user') ?>" method="get" class="d-flex">
-      <input
-        type="text"
-        name="q"
-        class="form-control form-control-sm me-2"
-        placeholder="Cari judul diskusi..."
-        value="<?= esc($q ?? '') ?>"
-      >
-      <button type="submit" class="btn btn-sm btn-primary">Cari</button>
-    </form>
-  </div>
-
 
   <table class="table table-bordered mt-3 bg-white">
     <thead class="table-light">

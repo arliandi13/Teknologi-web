@@ -29,4 +29,5 @@ class TopicModel extends Model
         return $builder->get()->getResultArray();
     }
 
+
 }

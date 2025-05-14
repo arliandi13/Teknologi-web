@@ -14,8 +14,8 @@ $routes->post('/register', 'Auth::attemptRegister');
 $routes->get('/logout', 'Auth::logout');
 
 // Dashboard user and admin
-$routes->get('/admin', 'Dashboard\Dashboard::dbadmin');
-$routes->get('/user', 'Dashboard\DashboardUser::dbuser');
+$routes->get('/dbadmin', 'Dashboard\Dashboard::dbadmin');
+$routes->get('/dbuser', 'Dashboard\DashboardUser::dbuser');
 
 
 // Route ke halaman forum
@@ -30,10 +30,15 @@ $routes->get('forum/search', 'Forum::search');
 
 // tabel pengguna
 $routes->get('/userspengguna', 'UserController::index');
+$routes->get('/edit', 'UserProfileController::edit');
+$routes->post('/update', 'UserProfileController::update');
+
+
+
 
 
 // Route ke halaman utama
-$routes->get('/index', 'Home::index');
+$routes->get('/', 'Auth::login');
 
 // Route ke halaman Profile
 $routes->get('/profile', 'ProfileBase::profile');

@@ -11,7 +11,7 @@
             <a href="/forum/create" class="btn btn-success me-2">
                 <i class="bi bi-plus-circle me-1"></i> Buat Topik
             </a>
-            <a href="/user" class="btn btn-outline-dark">
+            <a href="/dbuser" class="btn btn-outline-dark">
                 ← Halaman User
             </a>
         </div>
@@ -71,7 +71,7 @@
 
     <!-- Tombol kembali di bagian bawah -->
     <div class="text-center mt-5">
-        <a href="/user" class="btn btn-outline-dark">
+        <a href="/dbuser" class="btn btn-outline-dark">
             ← Kembali ke Halaman User
         </a>
     </div>
