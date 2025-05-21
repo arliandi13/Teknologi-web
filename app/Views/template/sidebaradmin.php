@@ -55,12 +55,12 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="#">
-        <i data-feather="list"></i> Kategori Diskusi
+      <a class="nav-link text-white" href="<?= base_url('/admin/reports') ?>">
+        <i data-feather="list"></i> Laporan Postingan
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="#">
+      <a class="nav-link text-white" href="<?= base_url('/message/users')?>">
         <i data-feather="message-square"></i> Direct Massage
       </a>
     </li>

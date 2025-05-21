@@ -9,35 +9,29 @@
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
-
   <div class="d-flex" id="wrapper">
-    <!-- Sidebar -->
-    <?= $this->include('template/sidebaradmin') ?>
 
-    <!-- Page Content -->
+   <!-- Sidebar -->
+    <?= $this->include('template/sidebar') ?>
+
+
+    <!-- ✅ Page Content -->
     <div class="flex-grow-1">
-      <!-- Navbar -->
-      <?= $this->include('template/navbaradmin') ?>
+      <?= $this->include('message/navbar') ?>
 
-      <!-- Main Content -->
-      <main class="container-fluid p-4">
+      <div class="container-fluid p-4">
         <?= $this->renderSection('content') ?>
-        <footer class="mt-4">
-          <p class="text-muted small">Website JPOT.id Indonesia</p>
-        </footer>
-      </main>
+        <p class="text-muted small mt-4">Website JPOT.id Indonesia</p>
+      </div>
     </div>
   </div>
 
-  <!-- Feather Icons & Sidebar Toggle -->
+  <!-- Feather Icons Init -->
   <script>
     feather.replace();
     document.getElementById('toggleSidebar')?.addEventListener('click', () => {
       document.getElementById('sidebar')?.classList.toggle('collapsed');
     });
   </script>
-
-  <!-- Tambahan JS -->
-  <?= $this->renderSection('scripts') ?>
 </body>
 </html>

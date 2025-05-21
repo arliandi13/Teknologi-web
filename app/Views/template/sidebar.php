@@ -61,7 +61,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="#">
+      <a class="nav-link text-white" href="<?= base_url('/message/users')?>">
         <i data-feather="message-square"></i> Direct Massage
       </a>
     </li>

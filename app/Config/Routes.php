@@ -25,13 +25,32 @@ $routes->post('/forum/store', 'Forum::store');
 $routes->get('/forum/detail/(:num)', 'Forum::detail/$1');
 $routes->post('/forum/reply/(:num)', 'Forum::reply/$1');
 
-// Sudah ada sebelumnya, tapi kita bisa tambahkan opsional sorting
+// Sudah ada sebelumnya, opsional sorting
 $routes->get('forum/search', 'Forum::search');
 
 // tabel pengguna
 $routes->get('/userspengguna', 'UserController::index');
 $routes->get('/edit', 'UserProfileController::edit');
 $routes->post('/update', 'UserProfileController::update');
+
+
+$routes->group('message', function($routes) {
+    $routes->get('users', 'MessageController::users');                 // daftar user
+    $routes->get('chat/(:num)', 'MessageController::chat/$1');        // halaman chat
+    $routes->post('sendMessage', 'MessageController::sendMessage');   // kirim pesan
+});
+
+//pelaporan
+$routes->post('/report/submit', 'ReportController::submit');
+$routes->post('/admin/report/updateStatus', 'AdminController::updateReportStatus');
+
+$routes->get('/admin/reports', 'AdminController::reports');
+$routes->post('/admin/report/updateStatus', 'AdminController::updateReportStatus');
+$routes->get('topic/(:num)', 'Forum::detail/$1');
+
+
+
+
 
 
 

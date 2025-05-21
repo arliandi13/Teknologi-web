@@ -19,9 +19,26 @@ class Forum extends BaseController
     public function index()
     {
         helper('textlimit');
-        $data['topics'] = $this->topicModel->orderBy('created_at', 'DESC')->findAll();
+
+        $search = $this->request->getGet('q'); // Ambil keyword dari URL
+        if ($search) {
+            // Jika ada pencarian, cari berdasarkan judul
+            $data['topics'] = $this->topicModel
+                ->like('title', $search)
+                ->orderBy('created_at', 'DESC')
+                ->findAll();
+        } else {
+            // Jika tidak ada pencarian, tampilkan semua
+            $data['topics'] = $this->topicModel
+                ->orderBy('created_at', 'DESC')
+                ->findAll();
+        }
+
+        $data['q'] = $search; // Kirim balik ke view agar form tetap terisi
+
         return view('forum/index', $data);
     }
+
 
     public function create()
     {
@@ -90,9 +107,6 @@ class Forum extends BaseController
 
         return redirect()->to("/forum/detail/" . $topic_id);
     }
-
-
-    
 
 }
 

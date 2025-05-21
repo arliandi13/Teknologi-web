@@ -11,9 +11,6 @@
             <a href="/forum/create" class="btn btn-success me-2">
                 <i class="bi bi-plus-circle me-1"></i> Buat Topik
             </a>
-            <a href="/dbuser" class="btn btn-outline-dark">
-                ← Halaman User
-            </a>
         </div>
     </div>
 

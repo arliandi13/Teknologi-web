@@ -9,50 +9,49 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
-/**
- * Class BaseController
- *
- * BaseController provides a convenient place for loading components
- * and performing functions that are needed by all your controllers.
- * Extend this class in any new controllers:
- *     class Home extends BaseController
- *
- * For security be sure to declare any new methods as protected or private.
- */
+// Tambahkan model yang dibutuhkan
+use App\Models\ReportModel;
+use App\Models\ReplyModel;
+
 abstract class BaseController extends Controller
 {
-    /**
-     * Instance of the main Request object.
-     *
-     * @var CLIRequest|IncomingRequest
-     */
     protected $request;
-
-    /**
-     * An array of helpers to be loaded automatically upon
-     * class instantiation. These helpers will be available
-     * to all other controllers that extend BaseController.
-     *
-     * @var list<string>
-     */
     protected $helpers = [];
 
-    /**
-     * Be sure to declare properties for any property fetch you initialized.
-     * The creation of dynamic property is deprecated in PHP 8.2.
-     */
-    // protected $session;
+    protected $reportModel;
+    protected $replyModel;
 
-    /**
-     * @return void
-     */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
-        // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
-        // Preload any models, libraries, etc, here.
+        // Inisialisasi session
+        $session = session();
 
-        // E.g.: $this->session = service('session');
+        // Jalankan hanya jika user adalah admin
+        if ($session->get('role') === 'admin') {
+            $this->reportModel = new ReportModel();
+            $this->replyModel  = new ReplyModel();
+
+            // Ambil semua laporan pending
+            $pendingReports = $this->reportModel
+                                   ->where('status', 'pending')
+                                   ->orderBy('id', 'DESC')
+                                   ->findAll();
+
+            // Tambahkan topic_id jika report adalah reply
+            foreach ($pendingReports as &$report) {
+                if ($report['reported_type'] === 'reply') {
+                    $reply = $this->replyModel->find($report['reported_id']);
+                    $report['topic_id'] = $reply['topic_id'] ?? null;
+                }
+            }
+
+            $reportCount = count($pendingReports);
+
+            // Kirim data global ke semua view
+            view()->setVar('adminReports', $pendingReports);
+            view()->setVar('reportCount', $reportCount);
+        }
     }
 }
